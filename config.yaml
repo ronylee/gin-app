@@ -1,0 +1,43 @@
+# app 
+app:
+  name: 'gin-app'
+  debug: true
+  db-type: 'mysql'
+  RuntimeRootPath: 'runtime/'
+  LogSavePath: 'logs/'
+  LogSaveName: 'log'
+  LogFileExt: 'log'
+  TimeFormat: '20060102'
+
+# server  
+server:
+  port: 8080
+  timeout: 2
+  pprof: true
+
+# mysql
+mysql:
+  host: '127.0.0.1'
+  port: '3306'
+  db-name: 'junlue_crm'
+  username: 'root'
+  password: '123456'
+
+# redis
+redis:
+  host: '127.0.0.1'
+  port: '6379'
+  db: 0
+  password: ''
+
+  # jwt
+jwt:
+  signing-key: 'qmPlus'
+  expires-time: 604800
+  buffer-time: 86400
+  secret: 23347$040412
+
+
+
+
+
