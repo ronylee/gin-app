@@ -8,6 +8,7 @@ cd build && ./debug.sh
 ### 获取配置
 
 fmt.Print(config.Bases.Mysql.Host)
+
 fmt.Print(config.Get("app.debug"))
 
 
