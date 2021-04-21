@@ -15,3 +15,5 @@
 # vendor/
 
 debug
+runtime/logs/*
+runtime/upload/*

@@ -3,6 +3,7 @@ package v1
 import (
 	"fmt"
 	"gin-app/pkg/e"
+	"gin-app/pkg/redis"
 	"net/http"
 
 	"github.com/astaxie/beego/validation"
@@ -62,4 +63,19 @@ func (*demo) Verify(c *gin.Context) {
 		"msg":  e.GetMsg(code),
 		"data": make(map[string]string),
 	})
+}
+
+func (*demo) Redis(c *gin.Context) {
+	client := redis.Redis
+
+	err := client.Set("feekey", "examples", 0).Err()
+	if err != nil {
+		panic(err)
+	}
+
+	val, err := client.Get("feekey").Result()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("feekey", val)
 }

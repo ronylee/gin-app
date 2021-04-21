@@ -5,6 +5,7 @@ import (
 	"gin-app/config"
 	"gin-app/model"
 	"gin-app/pkg/logging"
+	"gin-app/pkg/redis"
 	"gin-app/router"
 	"log"
 	"net/http"
@@ -14,9 +15,11 @@ import (
 )
 
 func main() {
-	config.InitConfig()            // 初始化配置
-	model.InitDB()                 // 初始化数据库
-	logging.InitLog()              // 初始化日志
+	config.InitConfig() // 初始化配置
+	model.InitDB()      // 初始化数据库
+	logging.InitLog()   // 初始化日志
+	redis.InitRedis()   // 初始化redis
+
 	routers := router.InitRouter() // 初始化路由，中间件
 
 	srv := &http.Server{
